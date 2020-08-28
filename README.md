@@ -4,6 +4,9 @@
 # aad-pod-identity-converter
 Read in a list of azure managed identity and convert them to YAML for use with aad-pod-identity
 
+# Requirements
+Current version of this app uses python3 and pip3. Python 2 is not supported.
+
 # Local environment setup
 standard python setup
 1. create a ```venv``` folder in your root locally.
