@@ -44,12 +44,52 @@ def write_azure_identity(identityList):
     logger.debug(len(identityList))
     for identity_id, identity_info in identityList.items():
         logger.debug(f'processing msi #{identity_id} containing')
-        filename = identityList[identity_id]['msi'] + '.yaml'
-        resourceId = identityList[identity_id]['Resource ID']
+
+        # Convert the data in the dictionary item into variables
+        filename = identity_info['msi'] + '.yaml'
+        identityName = identity_info['msi']
+        resourceId = identity_info['Resource ID']
+        clientId = identity_info['Client ID']
+
+        #Create a single YAML for the AzureIdentity for each item in identityList
         with open (filename, 'w') as identityfile:
             logger.debug(f'processing file:{filename}')
-            identityfile.write(f'example text: {resourceId}')
+            identityfile.write(f'apiVersion: "aadpodidentity.k8s.io/v1"\n')
+            identityfile.write(f'kind: AzureIdentity\n')
+            identityfile.write(f'metadata:\n')
+            identityfile.write(f'  name: {identityName}\n')
+            identityfile.write(f'spec:\n')
+            identityfile.write(f'  type: 0\n')
+            identityfile.write(f'  resourceID: {resourceId}\n')
+            identityfile.write(f'  clientID: {clientId}')
+            identityfile.write(f'')
             identityfile.close()
+
+def write_azure_identity_binding(identityList):
+    """Takes in a nested dictionary of identities and creates azure identity binding yaml for each"""
+    logger.debug(len(identityList))
+    for identity_id, identity_info in identityList.items():
+        logger.debug(f'processing msi #{identity_id} containing')
+
+        # Convert the data in the dictionary item into variables
+        filename = identity_info['msi'] + '.yaml'
+        identityName = identity_info['msi']
+        resourceId = identity_info['Resource ID']
+        clientId = identity_info['Client ID']
+
+        #Create a single YAML for the AzureIdentityBinding for each item in identityList
+        with open (filename, 'w') as identityfile:
+            logger.debug(f'processing file:{filename}')
+            identityfile.write(f'apiVersion: "aadpodidentity.k8s.io/v1"\n')
+            identityfile.write(f'kind: AzureIdentity\n')
+            identityfile.write(f'metadata:\n')
+            identityfile.write(f'  name: {identityName}\n')
+            identityfile.write(f'spec:\n')
+            identityfile.write(f'  type: 0\n')
+            identityfile.write(f'  resourceID: {resourceId}\n')
+            identityfile.write(f'  clientID: {clientId}')
+            identityfile.close()
+
 
 #read_input("single-line.csv")
 read_input_csv("example-identities.csv")
