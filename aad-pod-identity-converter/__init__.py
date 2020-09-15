@@ -79,7 +79,7 @@ def write_azure_identity_binding(identityList):
             identityfile.close()
 
 #read_input("single-line.csv")
-read_input_csv("example-identities.csv")
+read_input_csv("../tests/unit/example-identities.csv")
 write_azure_identity(msilist)
 write_azure_identity_binding(msilist)
 
