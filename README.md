@@ -16,7 +16,10 @@ standard python setup
 
 # Run unit tests
 1. Activate local environment in terminal ```source venv/bin/activate```
-2. execute unit test file ```python tests/unit/test_unit.py ```
+2. execute unit test file ```python tests/unit/test_unit.py```
+OR
+1. change to local directory
+2. execute unit test ```python3 -m unittest discover -s tests/unit/ -t src```
 
 
 # Additional Information

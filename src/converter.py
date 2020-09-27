@@ -55,7 +55,7 @@ def write_azure_identity(identityList):
             identityfile.write(f'')
             identityfile.close()
 
-def write_azure_identity_binding(identityList):
+def write_azure_identity(identityList):
     """Takes in a nested dictionary of identities and creates azure identity binding yaml for each"""
     logger.debug(len(identityList))
     for identity_id, identity_info in identityList.items():
