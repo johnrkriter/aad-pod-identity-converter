@@ -78,8 +78,7 @@ def write_azure_identity_binding(identityList):
             identityfile.write(f'  selector: {identityName}')
             identityfile.close()
 
-#read_input("single-line.csv")
-read_input_csv("../tests/unit/example-identities.csv")
-write_azure_identity(msilist)
-write_azure_identity_binding(msilist)
-
+if __name__ == '__main__':
+    read_input_csv("../tests/unit/example-identities.csv")
+    write_azure_identity(msilist)
+    write_azure_identity_binding(msilist)
