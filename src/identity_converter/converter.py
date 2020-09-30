@@ -13,9 +13,9 @@ logzero.loglevel(logging.DEBUG)
 #initialized dictionary containing dictionaries of MSI configuration information
 msilist = {}
 
-def read_input_csv(filePath):
+def read_input_csv(inputPath):
     """Reads in a CSV file and creates a dictionary of each line, adding it to a collection dictionary"""
-    with open(filePath, mode="r") as csvfile:
+    with open(inputPath, mode="r") as csvfile:
         reader = csv.DictReader(csvfile)
         line_count = 0
         for row in reader:
@@ -62,7 +62,7 @@ def write_azure_identity_binding(identityList):
         logger.debug(f'processing msi #{identity_id} containing')
 
         # Convert the data in the dictionary item into variables
-        filename = './output/' + identity_info['msi'] + '-binding.yaml'
+        filename = '../data/output/' + identity_info['msi'] + '-binding.yaml'
         identityName = identity_info['msi']
 
         #Create a single YAML for the AzureIdentityBinding for each item in identityList
@@ -78,8 +78,18 @@ def write_azure_identity_binding(identityList):
             identityfile.write(f'  selector: {identityName}')
             identityfile.close()
 
+def full_conversion(inputPath):
+    """Convert a single csv into identity and binding"""
+    read_input_csv(inputPath)
+    write_azure_identity(msilist)
+    write_azure_identity_binding(msilist)
+    msilist.clear
+    
+
 #read_input("single-line.csv")
-read_input_csv("example-identities.csv")
-write_azure_identity(msilist)
-write_azure_identity_binding(msilist)
+if __name__ == '__main__':
+    read_input_csv("example-identities.csv")
+    write_azure_identity(msilist)
+    write_azure_identity_binding(msilist)
+    msilist.clear
 
