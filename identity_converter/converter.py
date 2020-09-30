@@ -35,7 +35,7 @@ def write_azure_identity(identityList):
         logger.debug(f'processing msi #{identity_id} containing')
 
         # Convert the data in the dictionary item into variables
-        filename = './output/' + identity_info['msi'] + '.yaml'
+        filename = '../data/output/' + identity_info['msi'] + '.yaml'
         identityName = identity_info['msi']
         resourceId = identity_info['Resource ID']
         clientId = identity_info['Client ID']
@@ -84,12 +84,7 @@ def full_conversion(inputPath):
     write_azure_identity(msilist)
     write_azure_identity_binding(msilist)
     msilist.clear
-    
 
-#read_input("single-line.csv")
 if __name__ == '__main__':
-    read_input_csv("example-identities.csv")
-    write_azure_identity(msilist)
-    write_azure_identity_binding(msilist)
-    msilist.clear
+    full_conversion("../data/example-identities.csv")
 
