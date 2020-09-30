@@ -3,11 +3,8 @@
 #Base python unit test framework
 import unittest
 
-#import sys
-#sys.path.append("..")
-
-#from .context import identity_converter as converter
-import identity_converter as converter
+#Import custom module
+from .context import identity_converter
 
 class TestAadPodIdentityConverter(unittest.TestCase):
     def test_testing_framework(self):
