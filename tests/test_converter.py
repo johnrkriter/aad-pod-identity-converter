@@ -4,7 +4,7 @@
 import unittest
 
 #Import custom module
-from .context import identity_converter
+from .context import identity_converter as converter
 
 class TestAadPodIdentityConverter(unittest.TestCase):
     def test_testing_framework(self):
@@ -24,7 +24,7 @@ class TestAadPodIdentityConverter(unittest.TestCase):
         """
         Test a properly formatted CSV file creates a dictionary
         """
-        converter.read_input_csv()
+        converter.read_input_csv("../data/example-identities.csv")
         self.assertTrue(True)
   
     def test_write_azure_identity_binding(self):
