@@ -17,16 +17,15 @@ class TestAadPodIdentityConverter(unittest.TestCase):
         """
         Test a properly formatted CSV file creates a dictionary
         """
-        self.assertTrue(True)
-
+        msilist = converter.read_input_csv("data/example-identities.csv")
+        self.assertEqual(len(msilist), 2)
 
     def test_write_azure_identity(self):
         """
         Test a properly formatted CSV file creates a dictionary
         """
-        converter.read_input_csv("../data/example-identities.csv")
         self.assertTrue(True)
-  
+
     def test_write_azure_identity_binding(self):
         """
         Test a properly formatted CSV file creates a dictionary

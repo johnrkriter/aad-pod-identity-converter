@@ -27,6 +27,7 @@ def read_input_csv(inputPath):
             line_count += 1
     logger.debug(f'msi list: {msilist}')
     csvfile.close()
+    return msilist
 
 def write_azure_identity(identityList):
     """Takes in a nested dictionary of identities and creates azure identity yaml for each"""
