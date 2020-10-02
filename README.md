@@ -11,5 +11,8 @@ standard python setup
 3. activate local environment either in editor(like vsCode) or in terminal ```source venv/bin/activate```
 4. install your requirements ```pip install -r requirements.txt```
 
+# Running tests
+1.Run ```python3 -m unittest  tests/test_converter.py```
+
 # Additional Information
-For more information about about using Azure Identity on AKS, refer to [Azure/aad-pod-identity](https://github.com/Azure/aad-pod-identity)
+For more information about about using Azure Identity on AKS, refer to [Azure/aad-pod-identity](https://github.com/Azure/aad-pod-identity) run 
