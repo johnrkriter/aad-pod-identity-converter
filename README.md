@@ -16,3 +16,4 @@ standard python setup
 
 # Additional Information
 For more information about about using Azure Identity on AKS, refer to [Azure/aad-pod-identity](https://github.com/Azure/aad-pod-identity) run 
+https://www.tutorialspoint.com/python3/python_command_line_arguments.htm
