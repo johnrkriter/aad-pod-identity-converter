@@ -1,7 +1,7 @@
 #This program is designed to read in azure Managed Identity information, and produce YAML for aad-pod-identity usage
 
 #Base Python Packages
-import csv, logging, os, re
+import csv, logging, os, re, sys, getopt
 
 #from logzero
 import logzero
@@ -12,6 +12,26 @@ logzero.loglevel(logging.DEBUG)
 
 #initialized dictionary containing dictionaries of MSI configuration information
 msilist = {}
+
+def validate_params(argv):
+   inputfile = ''
+   outputfile = ''
+   try:
+      opts, args = getopt.getopt(argv,"hi:o:",["ifile=","ofile="])
+   except getopt.GetoptError:
+      print ('test.py -i <inputfile> -o <outputfile>')
+      sys.exit(2)
+   for opt, arg in opts:
+      if opt == '-h':
+         print ('test.py -i <inputfile> -o <outputfile>')
+         sys.exit()
+      elif opt in ("-i", "--ifile"):
+         inputfile = arg
+      elif opt in ("-o", "--ofile"):
+         outputfile = arg
+   print ('Input file is "', inputfile)
+   print ('Output file is "', outputfile)
+    
 
 def read_input_csv(inputPath):
     """Reads in a CSV file and creates a dictionary of each line, adding it to a collection dictionary"""
@@ -87,5 +107,6 @@ def full_conversion(inputPath):
     msilist.clear
 
 if __name__ == '__main__':
+    validate_params(sys.argv[1:])
     full_conversion("../data/example-identities.csv")
 
