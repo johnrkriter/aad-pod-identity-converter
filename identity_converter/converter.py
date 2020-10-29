@@ -13,24 +13,26 @@ logzero.loglevel(logging.DEBUG)
 #initialized dictionary containing dictionaries of MSI configuration information
 msilist = {}
 
+#configuration parameters
+inputFile = ""
+outputLocation = ""
+
 def validate_params(argv):
-   inputfile = ''
-   outputfile = ''
    try:
-      opts, args = getopt.getopt(argv,"hi:o:",["ifile=","ofile="])
+      opts, args = getopt.getopt(argv,"hi:o:",["ifile=","oloc="])
    except getopt.GetoptError:
-      print ('test.py -i <inputfile> -o <outputfile>')
+      print ('test.py -i <inputfile> -o <outputlocation>')
       sys.exit(2)
    for opt, arg in opts:
       if opt == '-h':
-         print ('test.py -i <inputfile> -o <outputfile>')
+         print ('converter.py -i <inputfile> -o <outputlocation>')
          sys.exit()
       elif opt in ("-i", "--ifile"):
-         inputfile = arg
-      elif opt in ("-o", "--ofile"):
-         outputfile = arg
-   print ('Input file is "', inputfile)
-   print ('Output file is "', outputfile)
+         inputFile = arg
+      elif opt in ("-o", "--oloc"):
+         outputLocation = arg
+   logger.debug(f'input file is '+ inputFile)
+   logger.debug(f'output locaton is '+ outputLocation)
     
 
 def read_input_csv(inputPath):
