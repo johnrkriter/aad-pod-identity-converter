@@ -18,6 +18,10 @@ standard python setup
 1. from the root directory execute the build ```docker build -t identity_converter:latest```
 2. Default data will be kept inside the container when you run ```docker run identity_converter:latest```
 
+It is recommended to run this with an attached host volume, so you can provide input and recieve output.
+to do this, run with the following 
+```docker run -v /path/to/input/file/directory:/usr/src/app/data:rw jkriter/identity_converter:latest```
+
 
 # Additional Information
 For more information about about using Azure Identity on AKS, refer to [Azure/aad-pod-identity](https://github.com/Azure/aad-pod-identity) run 
