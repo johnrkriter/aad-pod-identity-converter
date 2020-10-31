@@ -21,6 +21,7 @@ standard python setup
 It is recommended to run this with an attached host volume, so you can provide input and recieve output.
 to do this, run with the following 
 ```docker run -v /path/to/input/file/directory:/usr/src/app/data:rw jkriter/identity_converter:latest```
+*note*make sure the input file is called identities.csv or code will fail
 
 
 # Additional Information
