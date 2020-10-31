@@ -14,5 +14,11 @@ standard python setup
 # Running tests
 1.Run ```python3 -m unittest  tests/test_converter.py```
 
+# Building Docker Image
+1. from the root directory execute the build ```docker build -t identity_converter:latest```
+2. Default data will be kept inside the container when you run ```docker run identity_converter:latest```
+
+
 # Additional Information
 For more information about about using Azure Identity on AKS, refer to [Azure/aad-pod-identity](https://github.com/Azure/aad-pod-identity) run 
+https://www.tutorialspoint.com/python3/python_command_line_arguments.htm
