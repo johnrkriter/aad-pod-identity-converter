@@ -87,5 +87,5 @@ def full_conversion(inputPath):
     msilist.clear
 
 if __name__ == '__main__':
-    full_conversion("../data/example-identities.csv")
+    full_conversion("../data/identities.csv")
 
