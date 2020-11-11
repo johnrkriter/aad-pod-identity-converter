@@ -1,3 +1,3 @@
 msi,Client ID,Object ID,Resource ID
 msi-preprod-dev1,000000000-000000-000000-00000,1111-11111-11111-1111,/subscriptions/123-123-123-132/resourceGroups/rg-dev/providers/Microsoft.ManagedIdentity/userAssignedIdentities/msi-preprod-dev1
-msi-preprod-dev2,222222222-222222-222222-22222,3333-33333-33333-3333,/subscriptions/123-123-123-123/resourceGroups/rg-dev/providers/Microsoft.ManagedIdentity/userAssignedIdentities/msi-preprod-dev2
+msi-PREPROD-dev2,222222222-222222-222222-22222,3333-33333-33333-3333,/subscriptions/123-123-123-123/resourceGroups/rg-dev/providers/Microsoft.ManagedIdentity/userAssignedIdentities/msi-preprod-dev2

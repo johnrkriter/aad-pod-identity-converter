@@ -23,6 +23,7 @@ def read_input_csv(inputPath):
                 logger.debug(f'Column names are {", ".join(row)}')
                 line_count += 1
             logger.debug(f'\t{row["msi"]} as msi: {row["Client ID"]} as Client ID: {row["Object ID"]} as Object ID: {row["Resource ID"]} as Resource ID.')
+            row["msi"] = row["msi"].lower()
             msilist[line_count]=row
             line_count += 1
     logger.debug(f'msi list: {msilist}')
