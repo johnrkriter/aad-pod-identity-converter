@@ -1,5 +1,5 @@
 # Deprecation Notice
-**With the upcoming changes to the method AKS uses to address permissions of workloads, this tool is no longer relavent.It is being placed on archive 7/26/2022 **
+**Given changes to the method AKS uses to address permissions of workloads, this tool is no longer relavent.It is being placed on archive 7/26/2022**
 
 # aad-pod-identity-converter
 Read in a list of azure managed identity and convert them to YAML for use with aad-pod-identity
